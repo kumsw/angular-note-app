@@ -1,15 +1,19 @@
-<div>
-  <h1> your notes</h1>
+<div class="container">
+
   <form [formGroup]="noteForm"  (ngSubmit)="saveNote(noteForm.value)">
     <div class="form-group">
       <label> note title:</label>
-      <input  formControlName="title"  type="text"/>
+      <div *ngIf="title?.invalid && title?.touched">
+        title is required!
+      </div>
+      <input formControlName="title"  type="text"/>
     </div>
     <div class="form-group">
       <label> note body:</label>
-      <input  formControlName="body" type="text"/>
+      <input class="noteBody" formControlName="body" type="text"/>
     </div>
     <button type="submit"> Save note</button>
     <button type="button" (click)="cancel()"> cancel</button>
   </form>
 </div>
+

@@ -1,5 +1,10 @@
+<h1>saved notes</h1>
+ <div class = "noteCard" *ngFor="let notes of notes">
+    <div class="noteBody">
+      <h4>{{notes.title}}</h4>
+      <p> {{notes.body}}</p>
+    </div>
 
-<div *ngFor="let notes of notes">
-<h4>{{notes.title}}</h4>
-  <p> {{notes.body}}</p>
-</div>
+  </div>
+
+

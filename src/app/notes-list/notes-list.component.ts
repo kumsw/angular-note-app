@@ -7,11 +7,11 @@ import { NoteService } from '../shared/note.service'
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit {
-  notes: any
+  notes: any;
   constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
-    this.notes = this.noteService.getNotes()
+    this.notes = this.noteService.getNotes();
   }
 
 }
