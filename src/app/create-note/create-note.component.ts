@@ -11,13 +11,14 @@ export class CreateNoteComponent implements OnInit {
   noteForm: FormGroup;
   title: FormControl =  new FormControl('', [Validators.required]);
   body: FormControl = new FormControl('');
+
   constructor(private noteService: NoteService, private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.noteForm = new FormGroup({
       title: this.title,
-      body: this.body
+      body: this.body,
     });
   }
 

@@ -1,10 +1,13 @@
 <h1>saved notes</h1>
- <div class = "noteCard" *ngFor="let notes of notes">
+<div>
+<button [class.active] = "sortBy === 'dateDesc' " (click)= "sortBy === 'dateDesc'">Sort by: Date Descending</button>
+ <div  class = "noteCard" *ngFor="let notes of notes">
     <div class="noteBody">
       <h4>{{notes.title}}</h4>
+      <p> {{notes.date | date:"short"}}</p>
       <p> {{notes.body}}</p>
     </div>
 
   </div>
-
+</div>
 
