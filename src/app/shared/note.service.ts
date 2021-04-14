@@ -10,7 +10,6 @@ export class NoteService{
     {title: 'final note in the series' , body: 'for now. please add more notes', date: new Date(2021,2, 26, 15,6,6)}
   ];
 
-
   getNotes(){
     // this will eventually come from a DB
     return this.NOTES;

@@ -2,20 +2,20 @@
   display: flex;
   flex-direction: row;
   padding: 1rem;
+  margin: 0;
 background-color: #232946;
   color: white;
 
 }
-.container h2{
-  margin: 0;
+.container h1{
+  margin: 1rem;
 }
 .navLinks{
-  list-style-type: none;
   padding: 0;
 }
 
 .navLinks a{
-  margin: 0.5rem;
+  margin: 0.3rem;
   color: white;
 }
 
@@ -23,3 +23,22 @@ background-color: #232946;
   flex-direction: row;
   align-content: flex-end;
 }
+
+ .navLinksContainer{
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
+}
+ .container button{
+   font-family: "Poppins", sans-serif;
+   font-size: 1rem;
+   background-color: #0b4585;
+   color: #ffff;
+   width: 8rem;
+   border: none;
+   border-radius: 20px;
+   padding: 0.3rem;
+   margin: 0.5rem;
+   box-shadow: 0.3rem 0.3rem 0.3rem rgba(68, 68, 69, 0.187);
+   align-items: flex-end;
+ }

@@ -2,9 +2,7 @@
   display: flex;
   border: solid;
   padding: 0.5rem;
-  margin: auto;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem auto;
   width: 20rem;
 
 }
@@ -14,5 +12,22 @@
 
 h1{
   text-align: center;
+
+}
+.notesContainer{
+  width: 100%;
+  flex-wrap: wrap;
+}
+.notesContainer button{
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  background-color: #e53170;
+  color: #ffff;
+  width: 12rem;
+  border: none;
+  border-radius: 25px;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(68, 68, 69, 0.187);
 
 }
