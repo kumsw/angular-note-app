@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NoteService} from '../shared/note.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-
+import {Tag} from '../models/tag.model';
+import {NoteModel} from '../models/note.model';
 @Component({
   templateUrl: './create-note.component.html',
   styleUrls: ['./create-note.component.css']
@@ -11,6 +12,9 @@ export class CreateNoteComponent implements OnInit {
   noteForm: FormGroup;
   title: FormControl =  new FormControl('', [Validators.required]);
   body: FormControl = new FormControl('');
+  tag: Tag;
+
+  public tags: Tag[] = [];
 
   constructor(private noteService: NoteService, private router: Router) {
   }
@@ -22,7 +26,8 @@ export class CreateNoteComponent implements OnInit {
     });
   }
 
-  saveNote(formValues) {
+  saveNote(formValues: NoteModel) {
+    formValues.tags = this.tags;
     this.noteService.updateNotesList(formValues);
     this.router.navigate(['/notes']);
   }

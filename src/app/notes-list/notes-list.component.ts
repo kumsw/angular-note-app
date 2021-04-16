@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { NoteService } from '../shared/note.service';
+import {NoteModel} from '../models/note.model';
+import {Tag} from '../models/tag.model';
 
 @Component({
   selector: 'app-notes-list',
@@ -7,7 +9,8 @@ import { NoteService } from '../shared/note.service';
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit  {
-  notes: any;
+  notes: NoteModel[];
+  tags: Tag[];
   sortBy: string;
 
   constructor(private noteService: NoteService) { }
@@ -36,7 +39,7 @@ function sortNotesDesc(n1: any, n2: any) {
   }
 
 }
-
+// create toggle switch so the button label changes on click
 function sortNotesAsc(n1: any, n2: any) {
     if (n1.date < n2.date) {
       return 1;

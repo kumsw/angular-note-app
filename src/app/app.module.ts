@@ -9,20 +9,31 @@ import {appRoutes} from "./routes";
 import { CreateNoteComponent } from './create-note/create-note.component';
 import {NoteService} from "./shared/note.service";
 
+import {MatChipsModule} from '@angular/material/chips';
+import {NoteTagComponent} from './note-tag/note-tag.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     NotesListComponent,
-    CreateNoteComponent
+    CreateNoteComponent,
+    NoteTagComponent
 
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-   RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [NoteService],
   bootstrap: [AppComponent]
