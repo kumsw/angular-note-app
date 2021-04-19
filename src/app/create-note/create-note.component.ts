@@ -12,9 +12,7 @@ export class CreateNoteComponent implements OnInit {
   noteForm: FormGroup;
   title: FormControl =  new FormControl('', [Validators.required]);
   body: FormControl = new FormControl('');
-  tag: Tag;
-
-  public tags: Tag[] = [];
+  public tags: Tag[] = [{name: 'life'}];
 
   constructor(private noteService: NoteService, private router: Router) {
   }

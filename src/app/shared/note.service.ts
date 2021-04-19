@@ -28,6 +28,5 @@ export class NoteService{
   updateNotesList(note: NoteModel): void{
      note.date = this.currentDate();
      this.NOTES.push(note);
-    // else don't show note.tags
   }
 }

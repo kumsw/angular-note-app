@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { NoteService } from '../shared/note.service';
 import {NoteModel} from '../models/note.model';
-import {Tag} from '../models/tag.model';
+
 
 @Component({
   selector: 'app-notes-list',
@@ -10,7 +10,6 @@ import {Tag} from '../models/tag.model';
 })
 export class NotesListComponent implements OnInit  {
   notes: NoteModel[];
-  tags: Tag[];
   sortBy: string;
 
   constructor(private noteService: NoteService) { }

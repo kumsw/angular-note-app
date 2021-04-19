@@ -5,12 +5,11 @@
     <div class="noteBody">
       <h4>{{note.title}}</h4>
       <p> {{note.date | date:"short"}}</p>
-      <div >
+      <div>
         <mat-chip *ngFor="let tag of note.tags">{{tag.name}}</mat-chip>
       </div>
       <p> {{note.body}}</p>
     </div>
-
   </div>
 </div>
 
