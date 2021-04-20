@@ -11,9 +11,9 @@
 
     <ng-container formArrayName="tags" >
       <label>Note tags:</label>
-      <input [formControlName]="" type="text" (input)="addTag($event)" />
       <div *ngFor="let tag of tags.controls; index as i ">
-        <p>{{i}}</p>
+        <input #tagList [formControlName]="i" type="text" (input)="addTag(tagList.value)" />
+        <p>{{tag}}</p>
       </div>
     </ng-container>
     <div class="form-group">
