@@ -8,9 +8,14 @@
       </div>
       <input formControlName="title"  type="text"/>
     </div>
-    <div>
-<app-note-tag [tags]="tags"> </app-note-tag>
-    </div>
+
+    <ng-container formArrayName="tags" >
+      <label>Note tags:</label>
+      <input [formControlName]="" type="text" (input)="addTag($event)" />
+      <div *ngFor="let tag of tags.controls; index as i ">
+        <p>{{i}}</p>
+      </div>
+    </ng-container>
     <div class="form-group">
       <label> Note body:</label>
       <input class="noteBody" formControlName="body" type="text"/>
