@@ -6,7 +6,7 @@
       <h4>{{note.title}}</h4>
       <p> {{note.date | date:"short"}}</p>
       <div>
-        <mat-chip *ngFor="let tag of note.tags">{{tag.name}}</mat-chip>
+        <mat-chip *ngFor="let tag of note.tags">{{tag}}</mat-chip>
       </div>
       <p> {{note.body}}</p>
     </div>

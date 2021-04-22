@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form [formGroup]="noteForm"  (ngSubmit)="saveNote(noteForm.value)">
+  <form [formGroup]="noteForm"  (keydown.enter)="$event.preventDefault()"(ngSubmit)="saveNote(noteForm.value)">
     <div class="form-group">
       <label> Note title:</label>
       <div *ngIf="title?.invalid && title?.touched">
@@ -11,11 +11,12 @@
 
     <ng-container formArrayName="tags" >
       <label>Note tags:</label>
-      <div *ngFor="let tag of tags.controls; index as i ">
-        <input #tagList [formControlName]="i" type="text" (input)="addTag(tagList.value)" />
-        <p>{{tag}}</p>
+      <input #tagList  type="text" (keyup.enter)="addTag(tagList.value)" />
+      <div  class="tagContainer" *ngFor="let tag of tags.controls; index as i ">
+        <mat-chip>{{tag.value}}</mat-chip><button class="chipButton" (click)="removeTag(i)">X</button>
       </div>
     </ng-container>
+
     <div class="form-group">
       <label> Note body:</label>
       <input class="noteBody" formControlName="body" type="text"/>

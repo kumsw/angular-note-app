@@ -26,11 +26,10 @@ export class CreateNoteComponent implements OnInit {
  // tags = this.noteForm.get('tags') as FormArray,
 
   addTag(tagList: string): void{
-    // inputValue = (event.target as HTMLInputElement).value;
     if ((tagList || '').trim()){
       this.tags.push(new FormControl(tagList));
     }
-    console.log(tagList);
+    console.log(this.tags);
   }
 
   removeTag(index: number): void {
