@@ -12,6 +12,7 @@ import {NoteService} from './shared/note.service';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -28,7 +29,7 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-
+    HttpClientModule,
     MatChipsModule,
     MatFormFieldModule,
     MatIconModule

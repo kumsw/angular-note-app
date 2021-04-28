@@ -9,35 +9,35 @@ import {NoteModel} from '../models/note.model';
 })
 export class CreateNoteComponent implements OnInit {
   noteForm: FormGroup;
-  title: FormControl =  new FormControl('', [Validators.required]);
-  body: FormControl = new FormControl('');
-  tags: FormArray = new FormArray([]);
+  noteTitle: FormControl =  new FormControl('', [Validators.required]);
+  noteBody: FormControl = new FormControl('');
+  noteTags: FormArray = new FormArray([]);
 
   constructor(private noteService: NoteService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.noteForm = new FormGroup({
-      title: this.title,
-      body: this.body,
-      tags: this.tags,
+      noteTitle: this.noteTitle,
+      noteBody: this.noteBody,
+      noteTags: this.noteTags,
     });
    }
  // tags = this.noteForm.get('tags') as FormArray,
 
   addTag(tagList: string): void{
     if ((tagList || '').trim()){
-      this.tags.push(new FormControl(tagList));
+      this.noteTags.push(new FormControl(tagList));
     }
-    console.log(this.tags);
+    console.log(this.noteTags);
   }
 
   removeTag(index: number): void {
-    this.tags.removeAt(index);
+    this.noteTags.removeAt(index);
    }
 
-  saveNote(formValues: NoteModel) {
-    this.noteService.updateNotesList(formValues);
+  saveNote(formValues: NoteModel): void{
+    this.noteService.saveNote(formValues).subscribe();
     this.router.navigate(['/notes']);
   }
 

@@ -1,7 +1,7 @@
 import {Tag} from './tag.model';
 export interface NoteModel{
-  title: string;
-  body: string;
+  noteTitle: string;
+  noteTags ?: Array<Tag>;
+  noteBody: string;
   date: any;
-  tags ?: Array<Tag>;
 }
