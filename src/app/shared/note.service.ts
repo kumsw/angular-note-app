@@ -34,7 +34,7 @@ export class NoteService{
   // post request
   saveNote(note): Observable<NoteModel[]>{
      const options = {headers: new HttpHeaders(({'Content-Type': 'application/json'}))};
-     return this.http.post<NoteModel[]>('api/notes', note, options)
+     return this.http.post<NoteModel[]>('http://localhost:3000/notes', note, options)
        .pipe(catchError(this.handleError<NoteModel[]>('saveNote', [])));
   }
 

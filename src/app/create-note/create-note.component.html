@@ -3,7 +3,7 @@
   <form [formGroup]="noteForm"  (keydown.enter)="$event.preventDefault()"(ngSubmit)="saveNote(noteForm.value)">
     <div class="form-group">
       <label> Note title:</label>
-      <div *ngIf="title?.invalid && title?.touched">
+      <div *ngIf="noteTitle?.invalid && noteTitle?.touched">
         title is required!
       </div>
       <input formControlName="title"  type="text"/>
@@ -12,7 +12,7 @@
     <ng-container formArrayName="tags" >
       <label>Note tags:</label>
       <input #tagList  type="text" (keyup.enter)="addTag(tagList.value)" />
-      <div  class="tagContainer" *ngFor="let tag of tags.controls; index as i ">
+      <div  class="tagContainer" *ngFor="let tag of noteTags.controls; index as i ">
         <mat-chip>{{tag.value}}</mat-chip><button class="chipButton" (click)="removeTag(i)">X</button>
       </div>
     </ng-container>
