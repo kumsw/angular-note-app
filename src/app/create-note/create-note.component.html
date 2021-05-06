@@ -6,10 +6,10 @@
       <div *ngIf="noteTitle?.invalid && noteTitle?.touched">
         title is required!
       </div>
-      <input formControlName="title"  type="text"/>
+      <input formControlName="noteTitle"  type="text"/>
     </div>
 
-    <ng-container formArrayName="tags" >
+    <ng-container formArrayName="noteTags" >
       <label>Note tags:</label>
       <input #tagList  type="text" (keyup.enter)="addTag(tagList.value)" />
       <div  class="tagContainer" *ngFor="let tag of noteTags.controls; index as i ">
@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label> Note body:</label>
-      <input class="noteBody" formControlName="body" type="text"/>
+      <input class="noteBody" formControlName="noteBody" type="text"/>
     </div>
     <button type="submit"> Save note</button>
     <button type="button" (click)="cancel()"> cancel</button>
