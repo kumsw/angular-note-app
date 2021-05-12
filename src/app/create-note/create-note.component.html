@@ -8,10 +8,17 @@
       </div>
       <input formControlName="noteTitle"  type="text"/>
     </div>
+    <div class="form-group">
+    <label>Date: </label>
+      <div *ngIf="date?.invalid && date?.touched">
+        date is required!
+      </div>
+      <input type="date" formControlName="date" class="date"/>
+    </div>
 
     <ng-container formArrayName="noteTags" >
       <label>Note tags:</label>
-      <input #tagList  type="text" (keyup.enter)="addTag(tagList.value)" />
+      <input id="tagInput" #tagList  type="text" (keyup.enter)="addTag(tagList.value)" />
       <div  class="tagContainer" *ngFor="let tag of noteTags.controls; index as i ">
         <mat-chip>{{tag.value}}</mat-chip><button class="chipButton" (click)="removeTag(i)">X</button>
       </div>

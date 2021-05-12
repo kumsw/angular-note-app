@@ -1,14 +1,14 @@
 <h1>Saved notes</h1>
 <div class="notesContainer">
-<button [class.active] = "sortBy === 'dateDesc' " >Sort by: Date Descending</button>
- <div  class = "noteCard" *ngFor="let note of notes$">
+<button [class.active] = "sortBy === 'dateDesc' " (click)= "onSortClicked()" >Sort by: Date Descending</button>
+ <div  class = "noteCard" *ngFor="let note$ of notes$">
     <div class="noteBody">
-      <h4>{{note.noteTitle}}</h4>
-      <p> {{note.date  }}</p>
+      <h4>{{note$.noteTitle}}</h4>
+      <p> {{note$.date}}</p>
       <div>
-        <mat-chip>{{note.noteTags}}</mat-chip>
+        <mat-chip>{{note$.noteTags}}</mat-chip>
       </div>
-      <p> {{note.noteBody}}</p>
+      <p> {{note$.noteBody}}</p>
     </div>
   </div>
 </div>

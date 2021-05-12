@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { NoteService } from '../shared/note.service';
+import {NoteService} from '../shared/note.service';
 import {NoteModel} from '../models/note.model';
-import {from, Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -11,32 +11,30 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit {
-  notes$: any;
+  notes$: Observable<NoteModel[]>;
   sortBy: string;
 
   constructor(private noteService: NoteService) {
   }
 
   ngOnInit(): void {
-
-    this.noteService.getNotes().subscribe((notes: any) => {
+    this.noteService.getNotes().subscribe((notes) => {
       this.notes$ = notes.data;
       console.log(this.notes$);
     });
-    // this.notes$ = await this.noteService.getNotes().toPromise();
+  }
+
+
+// tags *ngFor="let tag of note.tags">{{tag}}
+  onSortClicked(): void{
+    this.notes$ = this.notes$.pipe(map((data) => {
+      data.sort((a, b) => {
+        return a.date > b.date ? 1 : -1;
+      });
+      return data;
+    }));
   }
 }
-// (click)= "onSortClicked('dateDesc')"
-// tags *ngFor="let tag of note.tags">{{tag}}
-//   public onSortClicked(): void {
-//     this.notes.pipe(map((note) => {
-//       note.sort((a, b) => {
-//         return a.date > b.date ? 1 : -1;
-//       });
-//       return note;
-//     }));
-//   }
-// }
 
 //   public onSortClicked(direction: string): void {
 //     if (direction === 'dateDesc') {
