@@ -14,10 +14,6 @@ export class NoteService {
   // get all request
   getNotes(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/notes');
-    // .pipe(
-    //   map(note => note[0]),
-    // catchError(this.handleError<any>('getNotes' , []))
-    // );
   }
 
   // post request
@@ -28,7 +24,8 @@ export class NoteService {
   }
 
   // delete request
-  deleteNote(){
+  deleteNote(): Observable<any>{
+    return this.http.delete(`http://localhost:3000/notes`);
   }
 
 

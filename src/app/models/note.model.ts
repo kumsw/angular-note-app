@@ -1,5 +1,6 @@
 import {Tag} from './tag.model';
 export interface NoteModel{
+  uuid: any;
   noteTitle: string;
   noteTags ?: Array<Tag>;
   noteBody: string;

@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {NoteService} from '../shared/note.service';
 import {FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 import {NoteModel} from '../models/note.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   templateUrl: './create-note.component.html',
@@ -14,12 +15,14 @@ export class CreateNoteComponent implements OnInit {
   noteBody: FormControl = new FormControl('');
   noteTags: FormArray = new FormArray([]);
   date: FormControl = new FormControl((new Date()).toISOString().substring(0, 10), [Validators.required]);
+  noteUuid: FormControl = new FormControl(uuidv4());
 
   constructor(private noteService: NoteService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.noteForm = new FormGroup({
+      noteUuid: this.noteUuid,
       noteTitle: this.noteTitle,
       noteBody: this.noteBody,
       noteTags: this.noteTags,
@@ -42,8 +45,7 @@ export class CreateNoteComponent implements OnInit {
 
   // Save note to DB
   saveNote(formValues): void {
-    this.noteTags = this.noteTags.value.join(',');
-    console.log( typeof this.noteTags);
+
     this.noteService.saveNote(formValues).subscribe();
     this.router.navigate(['/notes']);
   }

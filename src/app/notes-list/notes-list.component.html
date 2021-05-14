@@ -4,6 +4,7 @@
  <div  class = "noteCard" *ngFor="let note$ of notes$">
     <div class="noteBody">
       <h4>{{note$.noteTitle}}</h4>
+      <button (click)="deleteNoteByID(note$.uuid)">X</button>
       <p> {{note$.date}}</p>
       <div>
         <mat-chip>{{note$.noteTags}}</mat-chip>
